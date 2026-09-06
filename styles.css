@@ -1,0 +1,224 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ /* VARIABLES DE COLORES*/
+
+:root {
+    --texto-principal: #111111;
+    --Fondo-principal: #503f3f;
+    --Tarjetas: #f2f2f2;
+    --Texto-secundario: #a2a2a2; 
+    --Boton-Enlaces-detalles: #1d2433;
+    --colores-gradient: #610018;
+    --gradient-color: #000000;
+}   
+
+
+
+
+body {
+    background-image:linear-gradient(to bottom,#610018,#000000 );
+    color: var(--Tarjetas);
+    font-family: Arial, sans-serif; 
+}
+
+
+/* Estilos generales para el cuerpo y el contenedor principal */
+
+
+
+header {
+    width: 100%;
+}
+
+nav {
+    display: flex; 
+    justify-content: space-between;
+    align-items:center;
+    
+   
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px;  
+    gap:30px; 
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--texto-principal);
+
+    letter-spacing: -1px;
+}
+
+nav ul {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    list-style: none;
+}
+
+nav ul a {
+    color: var(--Texto-secundario);
+
+    font: size 15px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+
+nav ul a:hover{
+color:var(--Texto-secundario)
+
+}
+a {
+     color: #610018;
+     text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* HERO */
+
+.hero {
+    
+    max-width: 1200px;
+    min-width: 70vh;
+
+    margin:0 auto;
+    padding: 80px 20px;
+    
+    display: flex;
+    align-items: center;
+}
+
+
+.hero-contenido {
+     max-width: 700px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+   
+
+}
+
+
+.hero h1 {
+    font-size: 64px;
+    line-height: 1.05;
+    margin-bottom: -2px;
+}
+
+
+.hero p {
+    font-size: 20px;
+   line-height: 1.5;
+   color:var(--Texto-secundario);
+   max-width: 600px;
+}
+
+
+.boton {
+    display: inline-block;
+
+    background-color: var(--Tarjetas);
+
+    color: var(--colores-gradient);
+    padding: 14px 25px;
+    border-color: #000000 ;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover{
+    transform:translateY(-3px)
+}
+
+/* PRODUCTOS */
+
+.productos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+
+.productos-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+.productos-titulo h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+
+.productos-titulo p {
+    color: var(--texto-secundario);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+
+.producto {
+    background-color: var (var(--Tarjetas));
+padding: 20px;
+border-radius: 12px ;
+display: flex;
+flex-direction: column;
+gap: 15px;
+
+}
+
+
+.producto-imagen {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--Fondo-principal);
+    border-radius: 8px;
+    font-size: 70px;
+}
+
+.producto h3 {
+    font-size: 22px;
+
+}
+
+.producto p{
+    color:var(--Texto-secundario);
+    line-height: 1.5;
+}
+
+.precio{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+@media (max-width:900px) {
+
+    .productos-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
