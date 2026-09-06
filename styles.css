@@ -11,11 +11,17 @@
 
 :root {
     --texto-principal: #111111;
-    --Fondo-principal: #503f3f;
-    --Tarjetas: #f2f2f2;
-    --Texto-secundario: #a2a2a2; 
-    --Boton-Enlaces-detalles: #1d2433;
+
+    --fondo-principal: #503f3f;
+
+    --tarjetas: #f2f2f2;
+
+    --texto-secundario: #a2a2a2; 
+
+    --boton-Enlaces-detalles: #1d2433;
+
     --colores-gradient: #610018;
+
     --gradient-color: #000000;
 }   
 
@@ -24,7 +30,7 @@
 
 body {
     background-image:linear-gradient(to bottom,#610018,#000000 );
-    color: var(--Tarjetas);
+    color: var(--tarjetas);
     font-family: Arial, sans-serif; 
 }
 
@@ -43,17 +49,20 @@ nav {
     align-items:center;
     
    
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto;
     padding: 25px 20px;  
     gap:30px; 
+    background-color: #000000;
 }
 
 
 .logo {
-    font-size: 24px;
+    color: var(--texto-secundario);
+    
+    font-size: 30px;
     font-weight: bold;
-    color: var(--texto-principal);
+   
 
     letter-spacing: -1px;
 }
@@ -69,9 +78,9 @@ nav ul {
 }
 
 nav ul a {
-    color: var(--Texto-secundario);
+    color: var(--texto-secundario);
 
-    font: size 15px;
+    font-size: 20px;
     font-weight: 600;
 
     transition: 0.3s;
@@ -80,8 +89,8 @@ nav ul a {
 
 
 nav ul a:hover{
-color:var(--Texto-secundario)
 
+    color: var(--tarjetas);
 }
 a {
      color: #610018;
@@ -91,62 +100,102 @@ a {
 
 
 /* HERO */
-
+/* ===== HERO CON SLIDESHOW ===== */
 .hero {
-    
-    max-width: 1200px;
-    min-width: 70vh;
-
-    margin:0 auto;
-    padding: 80px 20px;
-    
+    position: relative;
+    max-width: 100%;
+    min-height: 80vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
+/* Contenedor de las imágenes de fondo */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
 
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* Overlay oscuro para que el texto se lea bien */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.55),
+        rgba(97, 0, 24, 0.65),
+        rgba(0, 0, 0, 0.8)
+    );
+    z-index: 2;
+}
+
+/* Contenido del hero (encima de todo) */
 .hero-contenido {
-     max-width: 700px;
+    position: relative;
+    z-index: 3;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-   
+    gap: 22px;
+    max-width: 720px;
+    text-align: center;
+    padding: 50px 40px;
 
+    /* Banner glass */
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
 }
-
 
 .hero h1 {
-    font-size: 64px;
-    line-height: 1.05;
-    margin-bottom: -2px;
+    font-size: 56px;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
 }
-
 
 .hero p {
-    font-size: 20px;
-   line-height: 1.5;
-   color:var(--Texto-secundario);
-   max-width: 600px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #d0d0d0;
+    max-width: 540px;
+    margin: 0;
 }
-
 
 .boton {
     display: inline-block;
-
-    background-color: var(--Tarjetas);
-
-    color: var(--colores-gradient);
-    padding: 14px 25px;
-    border-color: #000000 ;
+    background-color: #ffffff;
+    color: #610018;
+    padding: 15px 36px;
     border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.35s ease;
+    margin-top: 6px;
 }
 
-.boton:hover{
-    transform:translateY(-3px)
+.boton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
-
 /* PRODUCTOS */
 
 .productos {
@@ -180,34 +229,57 @@ a {
 
 
 .producto {
-    background-color: var (var(--Tarjetas));
+    background-color: var(--gradient-color);
+
 padding: 20px;
+
 border-radius: 12px ;
+
 display: flex;
+
 flex-direction: column;
+
 gap: 15px;
 
+transition: 0.3s;
+
+}
+
+.producto:hover {
+    transform: translateY(-8px);
 }
 
 
 .producto-imagen {
-    height: 200px;
+    height: 220px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     
-    background-color: var(--Fondo-principal);
+    background-color: var(--fondo-principal);
+
     border-radius: 8px;
-    font-size: 70px;
+
+  overflow: hidden;
 }
 
+
+.producto-imagen img {
+width: 90%;
+
+height: 90%;
+
+object-fit: contain;
+
+}
 .producto h3 {
     font-size: 22px;
 
 }
 
 .producto p{
-    color:var(--Texto-secundario);
+    color:var(--texto-secundario);
     line-height: 1.5;
 }
 
@@ -216,9 +288,27 @@ gap: 15px;
     font-weight: bold;
 }
 
-@media (max-width:900px) {
+@media (max-width:600px) {
+
+
+
+.hero{
+    min-height: 60vh;
+}
+
+
+.hero h1{
+    font-size:42px;
+}
+
+
+.hero p{
+
+    font-size:18px;
+}
+
 
     .productos-grid{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: 1fr;
     }
 }

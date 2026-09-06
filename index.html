@@ -10,7 +10,7 @@
 
     <header>
         <nav>
-          <a href="#" class="Logo">
+          <a href="#" class="logo">
              GAMESTORE 
           </a>
             <ul>
@@ -22,86 +22,96 @@
         </nav>
     </header>
 
- <main>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Fondo de juegos que van pasando -->
+    <div class="hero-bg">
+      <div class="hero-slide active" style="background-image: url('imagenes/juego1.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('imagenes/juego2.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('imagenes/juego3.jpg');"></div>
+      <div class="hero-slide" style="background-image: url('imagenes/juego4.jpg');"></div>
+    </div>
 
-     <section class="hero"> 
-      
-        <div class="hero-contenido">  
-     
-             <h1>    
-              TODO PARA TU MUNDO GAMER 
-             </h1> 
-    
-             <p>      Consolas, juegos y accesorios para llevar
-             tu experiencia al siguiente nivel.
-             </p>
-            
+    <!-- Overlay oscuro -->
+    <div class="hero-overlay"></div>
 
-             <a href="Productos" class="boton"> 
-                Ver productos    
-             </a>
-        </div>
-     </section>
+    <!-- Contenido -->
+    <div class="hero-contenido">
+      <h1>TODO PARA TU MUNDO GAMER</h1>
+      <p>Consolas, juegos y accesorios para llevar tu experiencia al siguiente nivel.</p>
+      <a href="#productos" class="boton">VER PRODUCTOS</a>
+    </div>
+  </section>
 
+  <!-- PRODUCTOS -->
+  <section class="productos" id="productos">
+    <div class="productos-titulo">
+      <h2>NUESTROS PRODUCTOS</h2>
+      <p>Encontrá todo lo que necesitás para mejorar tu experiencia gamer.</p>
+    </div>
 
-    <section class="productos" id="productos">   
-       <div class="Productos-titulo">
-
-       <h2>  NUESTROS PRODUCTOS</h2>
-
-       <P> Encontrá todo lo que necesitás para mejorar tu experiencia gamer.</P>
-
-       </div>
-
-
-
-       <div class="productos-grid"> 
-
-         <article class="producto">
+    <div class="productos-grid">
+      <!-- Producto 1 -->
+      <article class="producto">
         <div class="producto-imagen">
-          🎮
+          <img src="imagenes/dualsense.jpg" alt="Joystick PS5 Dualsense">
         </div>
-        <h3> Joystick PS5 </h3>
-          <p> Control inalámbrico Dualsense para Playstation 5.</p>
-          <span class="precio"> $150.000 </span>
+        <h3>Joystick PS5</h3>
+        <p>Control inalámbrico Dualsense para Playstation 5.</p>
+        <span class="precio">$150.000</span>
+        <a href="#" class="boton">VER PRODUCTO</a>
+      </article>
 
-          <a href="#" class="boton"> VER PRODUCTO </a>
-         </article>
+      <!-- Producto 2 -->
+      <article class="producto">
+        <div class="producto-imagen">
+          <img src="imagenes/headset.jpg" alt="Headset Gamer">
+        </div>
+        <h3>Headset Gamer</h3>
+        <p>Auriculares gamer con micrófono incorporado.</p>
+        <span class="precio">$85.000</span>
+        <a href="#" class="boton">VER PRODUCTO</a>
+      </article>
 
-         <article class="producto"> 
-          <div class="producto-imagen">
-             🎧
-          </div>
-          <h3> Headset Gamer</h3>
-          <p> 
-            Auriculares gamer con micrófono incorporado.
-          </p>
-            <span class="precio">   
-                $85.000
-            </span>
-            <a href="#" class="boton"> 
-              VER PRODUCTO  
-            </a>
-         </article>
+      <!-- Producto 3 -->
+      <article class="producto">
+        <div class="producto-imagen">
+          <img src="imagenes/Joystick-xbox.jpg" alt="Joystick XBOX">
+        </div>
+        <h3>Joystick Xbox</h3>
+        <p>Control inalámbrico para Xbox Edición limitada</p>
+        <span class="precio">$120.000</span>
+        <a href="#" class="boton">VER PRODUCTO</a>
+      </article>
 
-         <article class="producto">
-          <div class="producto-imagen">
-            🕹️
-          </div>
-          <h3>  Joystick Xbox </h3>
-          <p> Control inalámbrico para Xbox Edicion limitada</p>
-          <span class="precio"> $120.000 </span>
-           <a href="#" class="boton">VER PRODUCTO</a>
-         </article>
-         <article class="producto">
-            <div class="producto-imagen">🎮 </div>
-            <h3> Playstation 5</h3>
-            <p> Consola Playstation 5 con almacenamiento SSD. </p>
-            <span class="precio"> $1.200.000 </span>
-            <a href="#" class="boton"> VER PRODUCTO</a>
-         </article>
-       </div>
-    </section>
- </main>
+      <!-- Producto 4 -->
+      <article class="producto">
+        <div class="producto-imagen">
+          <img src="imagenes/playstation-5.jpg" alt="Playstation 5">
+        </div>
+        <h3>Playstation 5</h3>
+        <p>Consola Playstation 5 con almacenamiento SSD.</p>
+        <span class="precio">$1.200.000</span>
+        <a href="#" class="boton">VER PRODUCTO</a>
+      </article>
+    </div>
+  </section>
+</main>
+
+ <script>
+  // Slideshow automático del hero ESTO NO LO SE USAR!!!
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  // Cambia de imagen cada 5 segundos
+  setInterval(nextSlide, 5000);
+</script>
 </body>
 </html>
