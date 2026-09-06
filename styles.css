@@ -288,27 +288,105 @@ object-fit: contain;
     font-weight: bold;
 }
 
-@media (max-width:600px) {
+/* ========== RESPONSIVE ========== */
 
+/* Tablets */
+@media (max-width: 900px) {
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .hero h1 {
+    font-size: 42px;
+  }
 
-.hero{
-    min-height: 60vh;
+  .hero-contenido {
+    padding: 40px 28px;
+    margin: 0 15px;
+  }
 }
 
+/* Celulares */
+@media (max-width: 600px) {
 
-.hero h1{
-    font-size:42px;
-}
+  /* NAV */
+  nav {
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 15px;
+  }
 
+  nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
 
-.hero p{
+  .logo {
+    font-size: 24px;
+  }
 
-    font-size:18px;
-}
+  nav ul a {
+    font-size: 16px;
+  }
 
+  /* HERO */
+  .hero {
+    min-height: 70vh;
+    padding: 40px 15px;
+  }
 
-    .productos-grid{
-        grid-template-columns: 1fr;
-    }
-}
+  .hero-contenido {
+    padding: 32px 20px;
+    max-width: 100%;
+    margin: 0 8px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .boton {
+
+    padding: 12px 26px;
+    } 
+/* PRODUCTOS */
+  .productos {
+    padding: 50px 15px;
+  }
+
+  .productos-titulo h2 {
+    font-size: 26px;
+  }
+
+  .productos-titulo p {
+    font-size: 15px;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .producto {
+    padding: 16px;
+  }
+
+  .producto-imagen {
+    height: 190px;
+  }
+
+  .producto h3 {
+    font-size: 19px;
+  }
+
+  .precio {
+    font-size: 20px;
+  }
+} 
