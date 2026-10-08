@@ -647,3 +647,53 @@ body.carrito-abierto {
     transition: none;
   }
 }
+
+/* Controls prepared for the next cart stage. */
+.carrito-item-controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.carrito-control {
+  appearance: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--colores-gradient);
+  border-radius: 8px;
+  background: var(--gradient-color);
+  color: var(--tarjetas);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.carrito-control--eliminar {
+  max-width: 100%;
+  background: var(--colores-gradient);
+  overflow-wrap: anywhere;
+}
+
+.carrito-control:hover {
+  background: var(--colores-gradient);
+}
+
+.carrito-control--eliminar:hover {
+  background: var(--gradient-color);
+}
+
+.carrito-control:focus-visible {
+  outline: 3px solid var(--tarjetas);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrito-control {
+    transition: none;
+  }
+}
