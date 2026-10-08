@@ -19,9 +19,17 @@
                <li> <a href="#">Nosotros</a> </li>  
                 <li><a href="#">Contacto</a></li>
             </ul>
-            <div class="carrito">
-              🛒 <span id="contador-carrito">0</span>
-            </div>
+            <button
+              type="button"
+              class="carrito"
+              id="abrir-carrito"
+              aria-label="Abrir carrito"
+              aria-haspopup="dialog"
+              aria-controls="panel-carrito"
+            >
+              <span aria-hidden="true">🛒</span>
+              <span id="contador-carrito">0</span>
+            </button>
         </nav>
     </header> 
     <main>
@@ -101,6 +109,27 @@
     </div>
   </section>
 </main>
+<dialog
+  id="panel-carrito"
+  class="carrito-panel"
+  aria-labelledby="carrito-titulo"
+>
+  <header class="carrito-panel-encabezado">
+    <h2 id="carrito-titulo">Tu carrito</h2>
+    <button type="button" id="cerrar-carrito" aria-label="Cerrar carrito">
+      ✕
+    </button>
+  </header>
+
+  <div class="carrito-panel-contenido">
+    <p id="carrito-vacio">Tu carrito está vacío.</p>
+    <ul id="carrito-lista" class="carrito-lista"></ul>
+  </div>
+
+  <footer class="carrito-panel-resumen">
+    <p>Total: <strong id="carrito-total">$0</strong></p>
+  </footer>
+</dialog>
  <script src="app.js"></script>
 </body> 
 </html>

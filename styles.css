@@ -477,3 +477,173 @@ object-fit: contain;
     font-size: 20px;
   }
 } 
+/* CART DRAWER */
+.carrito {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.carrito:focus-visible,
+#cerrar-carrito:focus-visible {
+  outline: 3px solid var(--tarjetas);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.carrito-panel {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: min(420px, 100%);
+  max-width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-left: 2px solid var(--colores-gradient);
+  background: var(--gradient-color);
+  color: var(--tarjetas);
+  font-family: inherit;
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+/* Keep the native closed dialog hidden. */
+.carrito-panel[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.carrito-panel::backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Remove this class before closing to animate the exit. */
+.carrito-panel--abierto {
+  transform: translateX(0);
+}
+
+.carrito-panel--abierto::backdrop {
+  opacity: 1;
+}
+
+body.carrito-abierto {
+  overflow: hidden;
+}
+
+.carrito-panel-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 20px;
+  background: var(--gradient-color);
+  border-bottom: 2px solid var(--colores-gradient);
+}
+
+#carrito-titulo {
+  min-width: 0;
+  font-size: 24px;
+  overflow-wrap: anywhere;
+}
+
+#cerrar-carrito {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--colores-gradient);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--tarjetas);
+  font: inherit;
+  font-size: 22px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#cerrar-carrito:hover {
+  background: var(--colores-gradient);
+}
+
+.carrito-panel-contenido {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  overflow-wrap: anywhere;
+}
+
+#carrito-vacio {
+  padding: 32px 0;
+  color: var(--texto-secundario);
+  text-align: center;
+  line-height: 1.6;
+}
+
+.carrito-lista {
+  display: grid;
+  gap: 16px;
+  list-style: none;
+}
+
+.carrito-item {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--colores-gradient);
+}
+
+.carrito-item-imagen {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  background: var(--fondo-principal);
+  border-radius: 8px;
+}
+
+.carrito-item-datos {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.carrito-panel-resumen {
+  flex-shrink: 0;
+  padding: 20px;
+  border-top: 2px solid var(--colores-gradient);
+  background: var(--gradient-color);
+  font-size: 20px;
+  overflow-wrap: anywhere;
+}
+
+.carrito-panel-resumen p {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrito,
+  #cerrar-carrito,
+  .carrito-panel,
+  .carrito-panel::backdrop {
+    transition: none;
+  }
+}
