@@ -14,6 +14,34 @@
 
 
 
+// ===== PRODUCTOS =====
+const productos = [
+  {
+    "id": "joystick-ps5",
+    "nombre": "Joystick PS5",
+    "precio": 150000,
+    "imagen": "imagenes/dualsense.jpg"
+  },
+  {
+    "id": "headset-gamer",
+    "nombre": "Headset Gamer",
+    "precio": 85000,
+    "imagen": "imagenes/headset.jpg"
+  },
+  {
+    "id": "joystick-xbox",
+    "nombre": "Joystick Xbox",
+    "precio": 120000,
+    "imagen": "imagenes/Joystick-xbox.jpg"
+  },
+  {
+    "id": "playstation-5",
+    "nombre": "Playstation 5",
+    "precio": 1200000,
+    "imagen": "imagenes/playstation-5.jpg"
+  }
+];
+
 // ===== CARRITO =====
 const botonesAgregar = document.querySelectorAll('.boton-agregar');
 const contadorCarrito = document.getElementById('contador-carrito');
@@ -22,7 +50,13 @@ let cantidadCarrito = 0; // Arranca en 0
 
 // Recorremos todos los botones "Agregar al carrito"
 botonesAgregar.forEach(function(boton) {
-  boton.addEventListener('click', function() {
+  boton.addEventListener('click', function(event) {
+    const id = event.currentTarget.dataset.productoId;
+    const producto = productos.find(function(producto) {
+      return producto.id === id;
+    });
+
+    console.log(producto);
     // Aumentamos la cantidad
     cantidadCarrito += 1;
 
